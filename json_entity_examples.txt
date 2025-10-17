@@ -1,0 +1,38 @@
+In the manytomany example object model, one User object may belong to many Group objects and one Group object may have many User objects.
+
+
+An array of two User objects:
+-----------------------------
+
+[{"uId": 101, "uName": "John"}, {"uId": 102, "uName": "Mary"}]
+
+
+POST body for the above example:
+---------------------------------
+{"entity": [{"uId": 101, "uName": "John"}, {"uId": 102, "uName": "Mary"}]}
+
+
+Curl command for the above example (for windows command line, double quotes are used):
+--------------------------------------------------------------------------------------
+
+curl -X POST "http://localhost:80/gilhari/v1/User"  -H "Content-Type: application/json" -d "{""entity"": [{""uId"": 101, ""uName"": ""John""}, {""uId"": 102, ""uName"": ""Mary""}]}"
+
+
+POST body for a new Group object associating it with the two previously created User objects.
+Notice that only linking attributes (uId) of the existing User objects need to be specified in the "users" attribute of the Group object:
+----------------------------------------------------------------------------------------------
+{"entity": {"gId": 1, "gName": "Math", "users": [{"uId": 101 }, {"uId": 102}]}}
+
+
+Curl command for the above example (for windows command line, double quotes are used):
+--------------------------------------------------------------------------------------
+curl -X POST "http://localhost:80/gilhari/v1/Group"  -H "Content-Type: application/json" -d "{""entity"": {""gId"": 1, ""gName"": ""Math"", ""users"": [{""uId"": 101 }, {""uId"": 102}]}}"
+
+
+Example of GET requests:
+----------------------------
+
+http://localhost:80/gilhari/v1/User
+http://localhost:80/gilhari/v1/User?deep=false
+http://localhost:80/gilhari/v1/Group
+http://localhost:80/gilhari/v1/Group?filter=gId=1
