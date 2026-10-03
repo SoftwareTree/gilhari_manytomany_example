@@ -1,1 +1,0 @@
-docker run  -p 80:8081 gilhari_manytomany_example:1.0

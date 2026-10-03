@@ -1,3 +1,0 @@
-./src/com/softwaretree/jdxjsonmanytomanyexample/model/JSON_User.java
-./src/com/softwaretree/jdxjsonmanytomanyexample/model/JSON_Group.java
-./src/com/softwaretree/jdxjsonmanytomanyexample/model/JSON_UserGroup.java
